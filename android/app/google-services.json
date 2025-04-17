@@ -1,0 +1,92 @@
+{
+  "project_info": {
+    "project_number": "520155478654",
+    "project_id": "chess-c5714",
+    "storage_bucket": "chess-c5714.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:520155478654:android:7b9f995a612a538f81362f",
+        "android_client_info": {
+          "package_name": "com.example.chess"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "520155478654-6rod8lum1n85uvp4tb64jss7v91kdl6q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.chess",
+            "certificate_hash": "dc3d7b0240667666286594c4f6a1a71c887ffc54"
+          }
+        },
+        {
+          "client_id": "520155478654-nnrihapaenirkrd48d4c7dv6br0k1b5b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.chess",
+            "certificate_hash": "357af0c655dddfc118b54d63288306cfa7b51093"
+          }
+        },
+        {
+          "client_id": "520155478654-msut0mn3tpr1k4faa88co9mlt31pfat0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCAc2rDHErXh67M51-6A1KFDyEdgnskYKI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "520155478654-msut0mn3tpr1k4faa88co9mlt31pfat0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:520155478654:android:5c57c583cf8c34cc81362f",
+        "android_client_info": {
+          "package_name": "com.example.smart_chess"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "520155478654-db957de1iq3f9oe7gpsfspt50sr9u87r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.smart_chess",
+            "certificate_hash": "dc3d7b0240667666286594c4f6a1a71c887ffc54"
+          }
+        },
+        {
+          "client_id": "520155478654-msut0mn3tpr1k4faa88co9mlt31pfat0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCAc2rDHErXh67M51-6A1KFDyEdgnskYKI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "520155478654-msut0mn3tpr1k4faa88co9mlt31pfat0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
