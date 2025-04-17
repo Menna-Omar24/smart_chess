@@ -19,7 +19,7 @@ class PieceThemePicker extends StatelessWidget {
             borderRadius: BorderRadius.all(Radius.circular(15)),
             child: Container(
               height: 120,
-              decoration: BoxDecoration(color: Color(0x20000000)),
+              decoration: BoxDecoration(color: Color(0x20ffffff)),
               child: Row(
                 children: [
                   Expanded(
