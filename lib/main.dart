@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
+
 import 'features/auth/view/forget_password_view.dart';
 import 'features/auth/view/login_view.dart';
 import 'features/auth/view/register_view.dart';
@@ -73,23 +74,14 @@ class _ChessState extends State<Chess> {
       designSize: const Size(391, 840),
       minTextAdapt: true,
       splitScreenMode: true,
-      builder: (_, child) => CupertinoApp(
-        theme: CupertinoThemeData(
-          // brightness: Brightness.dark,
-
-          textTheme: CupertinoTextThemeData(
-            textStyle: TextStyle(fontFamily: 'JockeyOne', fontSize: 18),
-            pickerTextStyle: TextStyle(fontFamily: 'JockeyOne'),
-          ),
-        ),
+      builder: (_, child) => MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Chess',
         routes: {
           '/': (context) => MainMenuView(),
           MainMenuView.routeName: (context) => MainMenuView(),
           SplashView.routeName: (context) => const SplashView(),
-          StartOnboardingView.routeName: (context) =>
-              const StartOnboardingView(),
+          StartOnboardingView.routeName: (context) => const StartOnboardingView(),
           OnboardingScreen.routeName: (context) => OnboardingScreen(),
           HomeScreen.routeName: (context) => const HomeScreen(),
           LoginView.routeName: (context) => const LoginView(),
@@ -97,7 +89,7 @@ class _ChessState extends State<Chess> {
           ForgetPasswordView.routeName: (context) => const ForgetPasswordView(),
         },
         initialRoute: (FirebaseAuth.instance.currentUser != null &&
-                FirebaseAuth.instance.currentUser!.emailVerified)
+            FirebaseAuth.instance.currentUser!.emailVerified)
             ? MainMenuView.routeName
             : SplashView.routeName,
       ),

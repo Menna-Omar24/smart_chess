@@ -5,6 +5,7 @@ import 'package:en_passant/views/components/chess_view/chess_board_widget.dart';
 import 'package:en_passant/views/components/chess_view/game_info_and_controls.dart';
 import 'package:en_passant/views/components/chess_view/promotion_dialog.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'components/chess_view/game_info_and_controls/game_status.dart';
@@ -33,21 +34,23 @@ class _ChessViewState extends State<ChessView> {
           WidgetsBinding.instance
               .addPostFrameCallback((_) => _showPromotionDialog(appModel));
         }
-        return WillPopScope(
-          onWillPop: _willPopCallback,
-          child: Container(
-            decoration: BoxDecoration(gradient: appModel.theme.background),
-            padding: EdgeInsets.all(30),
-            child: Column(
-              children: [
-                Spacer(),
-                ChessBoardWidget(appModel),
-                SizedBox(height: 30),
-                GameStatus(),
-                Spacer(),
-                GameInfoAndControls(appModel),
-                BottomPadding(),
-              ],
+        return Scaffold(
+          body: WillPopScope(
+            onWillPop: _willPopCallback,
+            child: Container(
+              decoration: BoxDecoration(gradient: appModel.theme.background),
+              padding: EdgeInsets.all(30),
+              child: Column(
+                children: [
+                  Spacer(),
+                  ChessBoardWidget(appModel),
+                  SizedBox(height: 30),
+                  GameStatus(),
+                  Spacer(),
+                  GameInfoAndControls(appModel),
+                  BottomPadding(),
+                ],
+              ),
             ),
           ),
         );
