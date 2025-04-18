@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class TextDefault extends StatelessWidget {
   final String text;
@@ -11,9 +12,10 @@ class TextDefault extends StatelessWidget {
     return Text(
       text,
       style: TextStyle(
-        fontSize: 16,
+        fontSize: 17,
         fontFamily: 'Jura',
         color: color,
+        fontWeight: FontWeight.bold
       ),
     );
   }
@@ -26,7 +28,7 @@ class TextSmall extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(text, style: TextStyle(fontSize: 20));
+    return Text(text, style: TextStyle(fontSize: 25));
   }
 }
 
@@ -37,7 +39,7 @@ class TextRegular extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(text, style: TextStyle(fontSize: 24));
+    return Text(text, style: TextStyle(fontSize: 24,color: Colors.white));
   }
 }
 

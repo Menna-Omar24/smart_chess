@@ -77,6 +77,17 @@ class _ChessState extends State<Chess> {
       builder: (_, child) => MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Chess',
+        theme: ThemeData(
+          fontFamily: 'JockeyOne',
+          textTheme: TextTheme(
+            bodyMedium: TextStyle(
+              fontSize: 16,
+              color: Colors.white,
+            ),
+          ),
+        ),
+
+
         routes: {
           '/': (context) => MainMenuView(),
           MainMenuView.routeName: (context) => MainMenuView(),
