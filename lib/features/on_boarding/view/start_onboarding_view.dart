@@ -56,6 +56,7 @@ class StartOnboardingView extends StatelessWidget {
                 AppString.bodyBoarding1,
                 style: TextStyle(
                   fontSize: AppFontSize.bodyStyle16,
+                  color: AppColor.black,
                 ),
               ),
               SizedBox(

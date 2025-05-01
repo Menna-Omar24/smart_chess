@@ -15,9 +15,10 @@ class RoundedAlertButton extends StatelessWidget {
         context: context,
         builder: (BuildContext context) {
           return CupertinoAlertDialog(
-            title: TextDefault(label),
+
+            title: TextDefault(label,color:  CupertinoColors.black,),
             content: TextDefault(
-              'Are you sure you want to ${label.toLowerCase()}?',
+              'Are you sure you want to ${label.toLowerCase()}?', color: CupertinoColors.black,
             ),
             actions: [
               CupertinoButton(

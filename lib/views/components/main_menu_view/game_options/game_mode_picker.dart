@@ -4,8 +4,16 @@ import 'picker.dart';
 
 class GameModePicker extends StatelessWidget {
   final Map<int, Text> playerCountOptions = const <int, Text>{
-    1: Text('One Player'),
-    2: Text('Two Player')
+    1: Text('One Player',
+    style: TextStyle(
+      fontSize: 18,
+    ),
+    ),
+    2: Text('Two Player',
+      style: TextStyle(
+        fontSize: 18,
+      ),
+    )
   };
 
   final int playerCount;

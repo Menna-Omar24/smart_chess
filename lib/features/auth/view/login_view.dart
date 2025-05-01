@@ -57,6 +57,9 @@ class _LoginViewState extends State<LoginView> {
         animType: AnimType.rightSlide,
         title: AppString.error,
         desc: AppString.desErrorAgain,
+        descTextStyle: TextStyle(
+          color:   AppColor.black,
+        ),
       ).show();
     }
   }
@@ -162,6 +165,10 @@ class _LoginViewState extends State<LoginView> {
                             animType: AnimType.rightSlide,
                             title: AppString.success,
                             desc: AppString.decSuccess,
+
+                            descTextStyle: TextStyle(
+                              color:   AppColor.black,
+                            ),
                             btnOkOnPress: () {
                               // Navigate to the home screen after the user presses "OK"
                               if (credential.user!.emailVerified) {
@@ -176,6 +183,9 @@ class _LoginViewState extends State<LoginView> {
                                   animType: AnimType.rightSlide,
                                   title: AppString.error,
                                   desc: AppString.decErrorVerified,
+                                  descTextStyle: TextStyle(
+                                    color:   AppColor.black,
+                                  ),
                                 ).show();
                               }
                             },
@@ -189,11 +199,17 @@ class _LoginViewState extends State<LoginView> {
                               dialogType: DialogType.error,
                               animType: AnimType.rightSlide,
                               title: AppString.error,
+                              titleTextStyle: TextStyle(
+                                color: AppColor.black,
+                              ),
                               desc: e.code == AppString.userNotFound
                                   ? AppString.desUserNotFound
                                   : e.code == AppString.wrongPassword
                                   ? AppString.desWrongPassword
                                   : AppString.desErrorUnexpected,
+                              descTextStyle: TextStyle(
+                                color:   AppColor.black,
+                              ),
                             ).show();
                           });
                         }
@@ -213,6 +229,7 @@ class _LoginViewState extends State<LoginView> {
                         AppString.haveAccount,
                         style: TextStyle(
                           fontSize: AppFontSize.bodyStyle16,
+                          color: AppColor.black
                         ),
                       ),
                       TextButton(

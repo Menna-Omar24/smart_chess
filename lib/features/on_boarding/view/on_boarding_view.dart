@@ -21,7 +21,13 @@ class OnboardingScreen extends StatelessWidget {
             fontWeight: FontWeight.bold,
             color: AppColor.primary),
       ),
-      body: AppString.bodyBoarding2,
+      bodyWidget: Text(
+        AppString.bodyBoarding2,
+        textAlign: TextAlign.center,
+        style: TextStyle(
+          color: AppColor.black,
+        ),
+      ),
       image: Center(
         child: Image.asset(AppAssets.imageOnBoarding2,
             height: AppSize.imageOnBoarding),
@@ -36,7 +42,13 @@ class OnboardingScreen extends StatelessWidget {
             fontWeight: FontWeight.bold,
             color: AppColor.primary),
       ),
-      body: AppString.bodyBoarding3,
+      bodyWidget: Text(
+        AppString.bodyBoarding3,
+        textAlign: TextAlign.center,
+        style: TextStyle(
+          color: AppColor.black,
+        ),
+      ),
       image: Center(
           child: Image.asset(AppAssets.imageOnBoarding3,
               height: AppSize.imageOnBoarding)),
@@ -45,12 +57,18 @@ class OnboardingScreen extends StatelessWidget {
     PageViewModel(
       titleWidget: Text(
         AppString.titleWidgetBoarding4,
+        textAlign: TextAlign.center,
         style: TextStyle(
             fontSize: AppFontSize.titleStyle20,
             fontWeight: FontWeight.bold,
             color: AppColor.primary),
       ),
-      body: AppString.bodyBoarding4,
+      bodyWidget: Text(
+        AppString.bodyBoarding4,
+        style: TextStyle(
+          color: AppColor.black,
+        ),
+      ),
       image: Center(
           child: Image.asset(AppAssets.imageOnBoarding4,
               height: AppSize.imageOnBoarding)),
@@ -60,8 +78,8 @@ class OnboardingScreen extends StatelessWidget {
 
   static PageDecoration getPageDecoration() {
     return PageDecoration(
-      titleTextStyle: TextStyle(
-          fontSize: AppFontSize.title22, fontWeight: FontWeight.bold),
+      titleTextStyle:
+          TextStyle(fontSize: AppFontSize.title22, fontWeight: FontWeight.bold),
       bodyTextStyle: TextStyle(fontSize: AppFontSize.bodyStyle16),
       imagePadding: REdgeInsets.all(20),
     );
