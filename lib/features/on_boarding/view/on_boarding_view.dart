@@ -65,6 +65,7 @@ class OnboardingScreen extends StatelessWidget {
       ),
       bodyWidget: Text(
         AppString.bodyBoarding4,
+        textAlign: TextAlign.center,
         style: TextStyle(
           color: AppColor.black,
         ),
