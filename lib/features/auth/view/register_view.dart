@@ -176,6 +176,7 @@ class _RegisterViewState extends State<RegisterView> {
                         AppString.alreadyHaveAccount,
                         style: TextStyle(
                           fontSize: AppFontSize.bodyStyle16,
+                            color: AppColor.black
                         ),
                       ),
                       TextButton(

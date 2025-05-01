@@ -18,7 +18,7 @@ class AppThemePicker extends StatelessWidget {
             height: 120,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(15)),
-              color: Color(0x20000000),
+              color: Color(0x20ffffff),
             ),
             child: CupertinoPicker(
               scrollController: FixedExtentScrollController(
