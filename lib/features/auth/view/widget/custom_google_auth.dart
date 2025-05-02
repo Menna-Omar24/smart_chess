@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 import '../../../../core/localization/app_string.dart';
 import '../../../../core/theme/app_assets.dart';
@@ -36,7 +37,7 @@ class CustomGoogleAuth extends StatelessWidget {
             Image.asset(AppAssets.superGoogle),
             const SizedBox(width: 10),
             Text(
-              AppString.loginWithGoogle,
+              AppString.loginWithGoogle.tr,
               style: TextStyle(
                 color: AppColor.primary,
                 fontSize: AppSize.sizeBox20,

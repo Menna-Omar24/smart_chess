@@ -1,4 +1,3 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:en_passant/model/app_model.dart';
 import 'package:en_passant/views/main_menu_view.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -8,8 +7,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:provider/provider.dart';
 
+import 'Languages/languages.dart';
 import 'features/auth/view/forget_password_view.dart';
 import 'features/auth/view/login_view.dart';
 import 'features/auth/view/register_view.dart';
@@ -22,7 +23,6 @@ import 'logic/shared_functions.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await EasyLocalization.ensureInitialized();
 
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
@@ -74,11 +74,19 @@ class _ChessState extends State<Chess> {
       designSize: const Size(391, 840),
       minTextAdapt: true,
       splitScreenMode: true,
-      builder: (_, child) => MaterialApp(
+      builder: (_, child) => GetMaterialApp(
+        translations: Languages(),
+        locale: Locale('en','ar'),
+        fallbackLocale: const Locale('en','ar'),
         debugShowCheckedModeBanner: false,
         title: 'Chess',
         theme: ThemeData(
-          fontFamily: 'JockeyOne',
+          appBarTheme: AppBarTheme(
+            titleTextStyle: TextStyle(
+              fontFamily: 'cairo',
+            ),
+          ),
+          fontFamily: 'cairo',
           textTheme: TextTheme(
             bodyMedium: TextStyle(
               fontSize: 16,

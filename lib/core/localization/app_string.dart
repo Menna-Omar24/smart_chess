@@ -13,6 +13,7 @@ class AppString {
 
   static const String labelName = "Name";
   static const String labelEmail = "Email";
+  static const String or = "Or";
   static const String labelPassword = "Password";
 
   static const String success = "Success";

@@ -9,4 +9,9 @@ class AppAssets {
   static const String logo = "assets/images/Chess_Board_Design.png";
   static const String password = "assets/images/forget_password.png";
   static const String superGoogle = "assets/icons/super_g.png";
+  static const String egy = "assets/icons/egy.svg";
+  static const String us = "assets/icons/us.svg";
+  static const String lightIcon = "assets/icons/light.svg";
+  static const String darkIcon = "assets/icons/dark.svg";
+
 }

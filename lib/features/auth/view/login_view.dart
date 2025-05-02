@@ -5,6 +5,7 @@ import 'package:en_passant/features/auth/view/widget/custom_text_form_field.dart
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import '../../../core/localization/app_string.dart';
 import '../../../core/theme/app_assets.dart';
@@ -55,8 +56,8 @@ class _LoginViewState extends State<LoginView> {
         context: context,
         dialogType: DialogType.error,
         animType: AnimType.rightSlide,
-        title: AppString.error,
-        desc: AppString.desErrorAgain,
+        title: AppString.error.tr,
+        desc: AppString.desErrorAgain.tr,
         descTextStyle: TextStyle(
           color:   AppColor.black,
         ),
@@ -82,7 +83,7 @@ class _LoginViewState extends State<LoginView> {
                     height: AppSize.imageLogo,
                   ),
                   Text(
-                    AppString.appTitle,
+                    AppString.appTitle.tr,
                     style: TextStyle(
                       fontFamily: 'JockeyOne',
                       color: AppColor.primary,
@@ -97,12 +98,12 @@ class _LoginViewState extends State<LoginView> {
                     validator: (value) {
                       if (value!.isEmpty || !value.contains('@')) {
                         return value.isEmpty
-                            ? AppString.empty
-                            : AppString.invalidEmail;
+                            ? AppString.empty.tr
+                            : AppString.invalidEmail.tr;
                       }
                     },
                     controller: emailAddressLogin,
-                    labelText: AppString.labelEmail,
+                    labelText: AppString.labelEmail.tr,
                     prefixIcon: Icons.email,
                   ),
                   SizedBox(
@@ -112,12 +113,12 @@ class _LoginViewState extends State<LoginView> {
                     validator: (value) {
                       if (value!.isEmpty || value.length < 6) {
                         return value.isEmpty
-                            ? AppString.empty
-                            : AppString.desPasswordLeast;
+                            ? AppString.empty.tr
+                            : AppString.desPasswordLeast.tr;
                       }
                     },
                     controller: passwordLogin,
-                    labelText: AppString.labelPassword,
+                    labelText: AppString.labelPassword.tr,
                     prefixIcon: Icons.lock,
                     suffixIcon: true,
                     obscureText: true,
@@ -132,7 +133,7 @@ class _LoginViewState extends State<LoginView> {
                         Navigator.of(context).pushNamed('forget_password');
                       },
                       child: Text(
-                        AppString.forgetPassword,
+                        AppString.forgetPassword.tr,
                         style: TextStyle(
                           color: AppColor.primary,
                           fontSize: AppFontSize.bodyStyle16,
@@ -163,8 +164,8 @@ class _LoginViewState extends State<LoginView> {
                             context: context,
                             dialogType: DialogType.success,
                             animType: AnimType.rightSlide,
-                            title: AppString.success,
-                            desc: AppString.decSuccess,
+                            title: AppString.success.tr,
+                            desc: AppString.decSuccess.tr,
 
                             descTextStyle: TextStyle(
                               color:   AppColor.black,
@@ -181,8 +182,8 @@ class _LoginViewState extends State<LoginView> {
                                   context: context,
                                   dialogType: DialogType.error,
                                   animType: AnimType.rightSlide,
-                                  title: AppString.error,
-                                  desc: AppString.decErrorVerified,
+                                  title: AppString.error.tr,
+                                  desc: AppString.decErrorVerified.tr,
                                   descTextStyle: TextStyle(
                                     color:   AppColor.black,
                                   ),
@@ -198,15 +199,15 @@ class _LoginViewState extends State<LoginView> {
                               context: context,
                               dialogType: DialogType.error,
                               animType: AnimType.rightSlide,
-                              title: AppString.error,
+                              title: AppString.error.tr,
                               titleTextStyle: TextStyle(
                                 color: AppColor.black,
                               ),
                               desc: e.code == AppString.userNotFound
                                   ? AppString.desUserNotFound
                                   : e.code == AppString.wrongPassword
-                                  ? AppString.desWrongPassword
-                                  : AppString.desErrorUnexpected,
+                                  ? AppString.desWrongPassword.tr
+                                  : AppString.desErrorUnexpected.tr,
                               descTextStyle: TextStyle(
                                 color:   AppColor.black,
                               ),
@@ -217,7 +218,7 @@ class _LoginViewState extends State<LoginView> {
                         print('Form is not valid');
                       }
                     },
-                    buttonText:AppString.login,
+                    buttonText:AppString.login.tr,
                   ),
                   SizedBox(
                     height: AppSize.sizeBox24,
@@ -226,7 +227,7 @@ class _LoginViewState extends State<LoginView> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        AppString.haveAccount,
+                        AppString.haveAccount.tr,
                         style: TextStyle(
                           fontSize: AppFontSize.bodyStyle16,
                           color: AppColor.black
@@ -237,7 +238,7 @@ class _LoginViewState extends State<LoginView> {
                           Navigator.of(context).pushNamed('register');
                         },
                         child: Text(
-                          AppString.createAccount,
+                          AppString.createAccount.tr,
                           style: TextStyle(
                             color: AppColor.primary,
                             fontSize: AppFontSize.bodyStyle16,
@@ -263,7 +264,7 @@ class _LoginViewState extends State<LoginView> {
                         width: AppSize.sizeBox16,
                       ),
                       Text(
-                        'Or',
+                        AppString.or.tr,
                         style: TextStyle(
                           color: AppColor.primary,
                           fontSize: AppFontSize.bodyStyle16,

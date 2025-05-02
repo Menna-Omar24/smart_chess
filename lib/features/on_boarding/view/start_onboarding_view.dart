@@ -1,6 +1,8 @@
 import 'package:en_passant/features/on_boarding/view/widget/default_switch_onboarding.dart';
+import 'package:en_passant/features/on_boarding/view/widget/default_switch_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import '../../../core/localization/app_string.dart';
 import '../../../core/theme/app_assets.dart';
 import '../../../core/theme/app_color.dart';
@@ -19,7 +21,7 @@ class StartOnboardingView extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          AppString.appTitle,
+          AppString.appTitle.tr,
           style: TextStyle(
             fontFamily: 'JockeyOne',
             fontWeight: FontWeight.bold,
@@ -41,7 +43,7 @@ class StartOnboardingView extends StatelessWidget {
                 height: AppSize.sizeBox28,
               ),
               Text(
-                AppString.titleWidgetBoarding1,
+                AppString.titleWidgetBoarding1.tr,
                 style: TextStyle(
                   fontSize: AppFontSize.titleStyle20,
                   fontWeight: FontWeight.bold,
@@ -53,7 +55,7 @@ class StartOnboardingView extends StatelessWidget {
               ),
               Text(
                 textAlign: TextAlign.center,
-                AppString.bodyBoarding1,
+                AppString.bodyBoarding1.tr,
                 style: TextStyle(
                   fontSize: AppFontSize.bodyStyle16,
                   color: AppColor.black,
@@ -62,19 +64,24 @@ class StartOnboardingView extends StatelessWidget {
               SizedBox(
                 height: AppSize.sizeBox28,
               ),
-              const DefaultSwitchOnboarding(
-                labelSwitch: AppString.labelLanguage,
-                iconSwitch: Icons.language,
+              DefaultSwitchOnboarding(
+                labelSwitch: AppString.labelLanguage.tr,
+                icon1: AppAssets.egy,
+                icon2: AppAssets.us,
               ),
-              const DefaultSwitchOnboarding(
-                labelSwitch: AppString.labelTheme,
-                iconSwitch: Icons.brightness_4,
+              SizedBox(
+                height: AppSize.sizeBox28,
+              ),
+              DefaultSwitchTheme(
+                labelSwitch: AppString.labelTheme.tr,
+                icon1: AppAssets.lightIcon ,
+                icon2: AppAssets.darkIcon,
               ),
               SizedBox(
                 height: AppSize.sizeBox28,
               ),
               CustomElevatedButton(
-                buttonText:AppString.buttonStart,
+                buttonText: AppString.buttonStart.tr,
                 onPressed: () {
                   Navigator.of(context).pushReplacement(
                     MaterialPageRoute(

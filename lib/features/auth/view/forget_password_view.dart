@@ -3,8 +3,10 @@ import 'package:en_passant/features/auth/view/widget/custom_elevated_button.dart
 import 'package:en_passant/features/auth/view/widget/custom_text_form_field.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import '../../../core/localization/app_string.dart';
 import '../../../core/theme/app_assets.dart';
+import '../../../core/theme/app_color.dart';
 import '../../../core/theme/app_size.dart';
 
 class ForgetPasswordView extends StatefulWidget {
@@ -26,9 +28,10 @@ class _ForgetPasswordViewState extends State<ForgetPasswordView> {
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          AppString.forgetPassword,
+          AppString.forgetPassword.tr,
           style: TextStyle(
             fontFamily: 'JockeyOne',
+            color: AppColor.primary,
             fontWeight: FontWeight.bold,
             fontSize: AppFontSize.appTitle34,
           ),
@@ -47,19 +50,19 @@ class _ForgetPasswordViewState extends State<ForgetPasswordView> {
                   validator: (value) {
                     if (value!.isEmpty || !value.contains('@')) {
                       return value.isEmpty
-                          ? AppString.empty
-                          : AppString.invalidEmail;
+                          ? AppString.empty.tr
+                          : AppString.invalidEmail.tr;
                     }
                   },
                   controller: emailAddress,
-                  labelText: 'Email',
+                  labelText: AppString.labelEmail.tr,
                   prefixIcon: Icons.email,
                 ),
                 SizedBox(
                   height: AppSize.sizeBox20,
                 ),
                 CustomElevatedButton(
-                  buttonText: AppString.resetPassword,
+                  buttonText: AppString.resetPassword.tr,
                   onPressed: () async {
                     try {
                       await FirebaseAuth.instance.sendPasswordResetEmail(
@@ -69,16 +72,16 @@ class _ForgetPasswordViewState extends State<ForgetPasswordView> {
                         context: context,
                         dialogType: DialogType.success,
                         animType: AnimType.rightSlide,
-                        title: AppString.success,
-                        desc: AppString.successResetPassword,
+                        title: AppString.success.tr,
+                        desc: AppString.successResetPassword.tr,
                       ).show();
                     } catch (e) {
                       AwesomeDialog(
                         context: context,
                         dialogType: DialogType.error,
                         animType: AnimType.rightSlide,
-                        title: AppString.error,
-                        desc: AppString.sureEmailCorrect,
+                        title: AppString.error.tr,
+                        desc: AppString.sureEmailCorrect.tr,
                       ).show();
                     }
                   },

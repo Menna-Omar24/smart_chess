@@ -1,7 +1,8 @@
+import 'package:en_passant/core/localization/app_string.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:introduction_screen/introduction_screen.dart';
-import '../../../core/localization/app_string.dart';
 import '../../../core/theme/app_assets.dart';
 import '../../../core/theme/app_color.dart';
 import '../../../core/theme/app_size.dart';
@@ -15,14 +16,15 @@ class OnboardingScreen extends StatelessWidget {
   final List<PageViewModel> pages = [
     PageViewModel(
       titleWidget: Text(
-        AppString.titleWidgetBoarding2,
+        AppString.titleWidgetBoarding2.tr,
         style: TextStyle(
             fontSize: AppFontSize.titleStyle20,
             fontWeight: FontWeight.bold,
+            fontFamily: 'Cairo',
             color: AppColor.primary),
       ),
       bodyWidget: Text(
-        AppString.bodyBoarding2,
+        AppString.bodyBoarding2.tr,
         textAlign: TextAlign.center,
         style: TextStyle(
           color: AppColor.black,
@@ -36,14 +38,14 @@ class OnboardingScreen extends StatelessWidget {
     ),
     PageViewModel(
       titleWidget: Text(
-        AppString.titleWidgetBoarding3,
+        AppString.titleWidgetBoarding3.tr,
         style: TextStyle(
             fontSize: AppFontSize.titleStyle20,
             fontWeight: FontWeight.bold,
             color: AppColor.primary),
       ),
       bodyWidget: Text(
-        AppString.bodyBoarding3,
+        AppString.bodyBoarding3.tr,
         textAlign: TextAlign.center,
         style: TextStyle(
           color: AppColor.black,
@@ -51,12 +53,12 @@ class OnboardingScreen extends StatelessWidget {
       ),
       image: Center(
           child: Image.asset(AppAssets.imageOnBoarding3,
-              height: AppSize.imageOnBoarding)),
+              height: AppSize.imageOnBoarding),),
       decoration: getPageDecoration(),
     ),
     PageViewModel(
       titleWidget: Text(
-        AppString.titleWidgetBoarding4,
+        AppString.titleWidgetBoarding4.tr,
         textAlign: TextAlign.center,
         style: TextStyle(
             fontSize: AppFontSize.titleStyle20,
@@ -64,7 +66,7 @@ class OnboardingScreen extends StatelessWidget {
             color: AppColor.primary),
       ),
       bodyWidget: Text(
-        AppString.bodyBoarding4,
+        AppString.bodyBoarding4.tr,
         textAlign: TextAlign.center,
         style: TextStyle(
           color: AppColor.black,
@@ -92,7 +94,7 @@ class OnboardingScreen extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          AppString.appTitle,
+          AppString.appTitle.tr,
           style: TextStyle(
             fontFamily: 'JockeyOne',
             color: AppColor.primary,
