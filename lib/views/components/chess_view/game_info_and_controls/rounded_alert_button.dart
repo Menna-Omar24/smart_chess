@@ -1,4 +1,6 @@
+import 'package:en_passant/core/localization/app_string.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:get/get.dart';
 import '../../shared/rounded_button.dart';
 import '../../shared/text_variable.dart';
 
@@ -18,7 +20,7 @@ class RoundedAlertButton extends StatelessWidget {
 
             title: TextDefault(label,color:  CupertinoColors.black,),
             content: TextDefault(
-              'Are you sure you want to ${label.toLowerCase()}?', color: CupertinoColors.black,
+              '${AppString.areYouSure.tr} ${label.toLowerCase()}?', color: CupertinoColors.black,
             ),
             actions: [
               CupertinoButton(
@@ -32,7 +34,7 @@ class RoundedAlertButton extends StatelessWidget {
                 },
               ),
               CupertinoButton(
-                child: TextDefault('Cancel', color: CupertinoColors.activeBlue),
+                child: TextDefault(AppString.cancel.tr, color: CupertinoColors.activeBlue),
                 onPressed: () {
                   Navigator.pop(context);
                 },

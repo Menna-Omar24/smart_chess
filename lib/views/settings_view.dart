@@ -1,3 +1,4 @@
+import 'package:en_passant/core/localization/app_string.dart';
 import 'package:en_passant/model/app_model.dart';
 import 'package:en_passant/views/components/settings_view/piece_theme_picker.dart';
 import 'package:en_passant/views/components/shared/rounded_button.dart';
@@ -5,6 +6,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:provider/provider.dart';
 
@@ -24,7 +26,7 @@ class SettingsView extends StatelessWidget {
           child: Column(
             children: [
               SizedBox(height: MediaQuery.of(context).padding.top),
-              TextLarge('Settings'),
+              TextLarge(AppString.setting.tr),
               SizedBox(height: 20),
               Expanded(
                 child: ListView(
@@ -41,14 +43,14 @@ class SettingsView extends StatelessWidget {
               ),
               SizedBox(height: 30),
               RoundedButton(
-                'Back',
+                AppString.back.tr,
                 onPressed: () {
                   Navigator.pop(context);
                 },
               ),
               SizedBox(height: 15.h),
               RoundedButton(
-                'Exit',
+                AppString.exit.tr,
                 onPressed: () async {
                   GoogleSignIn googleSignIn = GoogleSignIn();
                   googleSignIn.disconnect();

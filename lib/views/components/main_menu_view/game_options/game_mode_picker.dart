@@ -1,15 +1,25 @@
+import 'package:en_passant/core/localization/app_string.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:get/get_utils/src/extensions/internacionalization.dart';
 
 import 'picker.dart';
 
 class GameModePicker extends StatelessWidget {
-  final Map<int, Text> playerCountOptions = const <int, Text>{
-    1: Text('One Player',
-    style: TextStyle(
-      fontSize: 18,
+  final Map<int, Text> playerCountOptions = <int, Text>{
+    1: Text(
+      AppString.onePlayer.tr,
+      style: TextStyle(
+        fontSize: 18,
+      ),
     ),
+    2: Text(
+      AppString.twoPlayer.tr,
+      style: TextStyle(
+        fontSize: 18,
+      ),
     ),
-    2: Text('Two Player',
+    3: Text(
+      AppString.gameBoard.tr,
       style: TextStyle(
         fontSize: 18,
       ),
@@ -24,7 +34,7 @@ class GameModePicker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Picker<int>(
-      label: 'Game Mode',
+      label: AppString.gameMode.tr,
       options: playerCountOptions,
       selection: playerCount,
       setFunc: setFunc,

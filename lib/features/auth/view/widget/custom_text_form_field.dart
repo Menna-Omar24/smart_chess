@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/theme/app_color.dart';
 
 class CustomTextFormField extends StatefulWidget {
   final String labelText;
@@ -49,24 +48,41 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       decoration: InputDecoration(
         prefixIcon: Icon(
           widget.prefixIcon,
-          color: AppColor.primary,
+          color: Theme.of(context).colorScheme.primary,
         ),
         suffixIcon: widget.suffixIcon
             ? InkWell(
                 onTap: toggleVisibility,
                 child: Icon(
                   isObscure ? Icons.visibility_off : Icons.visibility,
-                  color: AppColor.primary,
+                  color: Theme.of(context).colorScheme.primary,
                 ),
               )
             : null,
         labelText: widget.labelText,
+        labelStyle: TextStyle(color: Theme.of(context).colorScheme.outline),
         border: OutlineInputBorder(
           borderSide: BorderSide(
-            color: AppColor.primary,
+            color: Theme.of(context).colorScheme.primary,
             width: 1.w,
           ),
           borderRadius: BorderRadius.circular(16.r),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Theme.of(context).colorScheme.primary,
+            width: 1.0, // Adjust the width as necessary
+          ),
+          borderRadius: BorderRadius.circular(16.0),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Theme.of(context)
+                .colorScheme
+                .primary, // Keep the same color when focused
+            width: 1.0,
+          ),
+          borderRadius: BorderRadius.circular(16.0),
         ),
       ),
     );

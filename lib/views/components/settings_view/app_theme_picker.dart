@@ -1,7 +1,9 @@
+import 'package:en_passant/core/localization/app_string.dart';
 import 'package:en_passant/model/app_model.dart';
 import 'package:en_passant/model/app_themes.dart';
 import 'package:en_passant/views/components/shared/text_variable.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:get/get_utils/src/extensions/export.dart';
 import 'package:provider/provider.dart';
 
 class AppThemePicker extends StatelessWidget {
@@ -11,7 +13,7 @@ class AppThemePicker extends StatelessWidget {
       builder: (context, appModel, child) => Column(
         children: [
           Container(
-            child: TextSmall('App Theme'),
+            child: TextSmall(AppString.appTheme.tr),
             padding: EdgeInsets.all(10),
           ),
           Container(

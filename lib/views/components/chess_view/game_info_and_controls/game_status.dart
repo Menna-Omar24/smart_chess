@@ -1,7 +1,9 @@
+import 'package:en_passant/core/localization/app_string.dart';
 import 'package:en_passant/model/app_model.dart';
 import 'package:en_passant/views/components/main_menu_view/game_options/side_picker.dart';
 import 'package:en_passant/views/components/shared/text_variable.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
 class GameStatus extends StatelessWidget {
@@ -26,30 +28,30 @@ class GameStatus extends StatelessWidget {
         if (appModel.isAIsTurn) {
           return 'AI [Level ${appModel.aiDifficulty}] is thinking ';
         } else {
-          return 'Your turn';
+          return AppString.yourTurn.tr;
         }
       } else {
         if (appModel.turn == Player.player1) {
-          return 'White\'s turn';
+          return AppString.whitesTurn.tr;
         } else {
-          return 'Black\'s turn';
+          return AppString.blacksTurn.tr;
         }
       }
     } else {
       if (appModel.stalemate) {
-        return 'Stalemate';
+        return AppString.stalemate.tr;
       } else {
         if (appModel.playerCount == 1) {
           if (appModel.isAIsTurn) {
-            return 'You Win!';
+            return AppString.youWin.tr;
           } else {
-            return 'You Lose :(';
+            return AppString.youLose.tr;
           }
         } else {
           if (appModel.turn == Player.player1) {
-            return 'Black wins!';
+            return AppString.blackWin.tr;
           } else {
-            return 'White wins!';
+            return AppString.whiteWin.tr;
           }
         }
       }

@@ -1,8 +1,10 @@
+import 'package:en_passant/core/localization/app_string.dart';
 import 'package:en_passant/model/app_model.dart';
 import 'package:en_passant/views/components/settings_view/piece_preview.dart';
 import 'package:en_passant/views/components/shared/text_variable.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
 class PieceThemePicker extends StatelessWidget {
@@ -12,7 +14,7 @@ class PieceThemePicker extends StatelessWidget {
       builder: (context, appModel, child) => Column(
         children: [
           Container(
-            child: TextSmall('Piece Theme'),
+            child: TextSmall(AppString.pieceTheme.tr),
             padding: EdgeInsets.all(10),
           ),
           ClipRRect(

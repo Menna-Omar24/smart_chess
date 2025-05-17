@@ -2,6 +2,8 @@ import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:en_passant/features/auth/view/widget/custom_elevated_button.dart';
 import 'package:en_passant/features/auth/view/widget/custom_google_auth.dart';
 import 'package:en_passant/features/auth/view/widget/custom_text_form_field.dart';
+import 'package:en_passant/features/on_boarding/view/widget/default_switch_onboarding.dart';
+import 'package:en_passant/features/on_boarding/view/widget/default_switch_theme.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -32,11 +34,12 @@ class _LoginViewState extends State<LoginView> {
       final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
       if (googleUser == null) {
         print('Google sign-in aborted');
-        return;  // User canceled the sign-in process
+        return; // User canceled the sign-in process
       }
 
       // Obtain the authentication details
-      final GoogleSignInAuthentication googleAuth = await googleUser.authentication;
+      final GoogleSignInAuthentication googleAuth =
+          await googleUser.authentication;
 
       // Create a new credential for Firebase authentication
       final credential = GoogleAuthProvider.credential(
@@ -59,7 +62,7 @@ class _LoginViewState extends State<LoginView> {
         title: AppString.error.tr,
         desc: AppString.desErrorAgain.tr,
         descTextStyle: TextStyle(
-          color:   AppColor.black,
+          color: Theme.of(context).colorScheme.secondary,
         ),
       ).show();
     }
@@ -86,7 +89,7 @@ class _LoginViewState extends State<LoginView> {
                     AppString.appTitle.tr,
                     style: TextStyle(
                       fontFamily: 'JockeyOne',
-                      color: AppColor.primary,
+                      color: Theme.of(context).colorScheme.primary,
                       fontWeight: FontWeight.bold,
                       fontSize: AppFontSize.appTitle34,
                     ),
@@ -101,6 +104,7 @@ class _LoginViewState extends State<LoginView> {
                             ? AppString.empty.tr
                             : AppString.invalidEmail.tr;
                       }
+                      return null;
                     },
                     controller: emailAddressLogin,
                     labelText: AppString.labelEmail.tr,
@@ -116,6 +120,7 @@ class _LoginViewState extends State<LoginView> {
                             ? AppString.empty.tr
                             : AppString.desPasswordLeast.tr;
                       }
+                      return null;
                     },
                     controller: passwordLogin,
                     labelText: AppString.labelPassword.tr,
@@ -135,11 +140,12 @@ class _LoginViewState extends State<LoginView> {
                       child: Text(
                         AppString.forgetPassword.tr,
                         style: TextStyle(
-                          color: AppColor.primary,
+                          color: Theme.of(context).colorScheme.primary,
                           fontSize: AppFontSize.bodyStyle16,
                           fontStyle: FontStyle.italic,
                           decoration: TextDecoration.underline,
-                          decorationColor: AppColor.primary,
+                          decorationColor:
+                              Theme.of(context).colorScheme.primary,
                           decorationThickness: 1.5,
                         ),
                       ),
@@ -166,15 +172,13 @@ class _LoginViewState extends State<LoginView> {
                             animType: AnimType.rightSlide,
                             title: AppString.success.tr,
                             desc: AppString.decSuccess.tr,
-
                             descTextStyle: TextStyle(
-                              color:   AppColor.black,
+                              color: Theme.of(context).colorScheme.secondary,
                             ),
                             btnOkOnPress: () {
                               // Navigate to the home screen after the user presses "OK"
                               if (credential.user!.emailVerified) {
-                                Navigator.of(context)
-                                    .pushReplacementNamed('/');
+                                Navigator.of(context).pushReplacementNamed('/');
                               } else {
                                 FirebaseAuth.instance.currentUser!
                                     .sendEmailVerification();
@@ -185,7 +189,8 @@ class _LoginViewState extends State<LoginView> {
                                   title: AppString.error.tr,
                                   desc: AppString.decErrorVerified.tr,
                                   descTextStyle: TextStyle(
-                                    color:   AppColor.black,
+                                    color:
+                                        Theme.of(context).colorScheme.secondary,
                                   ),
                                 ).show();
                               }
@@ -201,15 +206,15 @@ class _LoginViewState extends State<LoginView> {
                               animType: AnimType.rightSlide,
                               title: AppString.error.tr,
                               titleTextStyle: TextStyle(
-                                color: AppColor.black,
+                                color: Theme.of(context).colorScheme.secondary,
                               ),
                               desc: e.code == AppString.userNotFound
                                   ? AppString.desUserNotFound
                                   : e.code == AppString.wrongPassword
-                                  ? AppString.desWrongPassword.tr
-                                  : AppString.desErrorUnexpected.tr,
+                                      ? AppString.desWrongPassword.tr
+                                      : AppString.desErrorUnexpected.tr,
                               descTextStyle: TextStyle(
-                                color:   AppColor.black,
+                                color: Theme.of(context).colorScheme.secondary,
                               ),
                             ).show();
                           });
@@ -218,7 +223,7 @@ class _LoginViewState extends State<LoginView> {
                         print('Form is not valid');
                       }
                     },
-                    buttonText:AppString.login.tr,
+                    buttonText: AppString.login.tr,
                   ),
                   SizedBox(
                     height: AppSize.sizeBox24,
@@ -229,9 +234,8 @@ class _LoginViewState extends State<LoginView> {
                       Text(
                         AppString.haveAccount.tr,
                         style: TextStyle(
-                          fontSize: AppFontSize.bodyStyle16,
-                          color: AppColor.black
-                        ),
+                            fontSize: AppFontSize.bodyStyle16,
+                            color: Theme.of(context).colorScheme.onSecondary),
                       ),
                       TextButton(
                         onPressed: () {
@@ -240,12 +244,13 @@ class _LoginViewState extends State<LoginView> {
                         child: Text(
                           AppString.createAccount.tr,
                           style: TextStyle(
-                            color: AppColor.primary,
+                            color: Theme.of(context).colorScheme.primary,
                             fontSize: AppFontSize.bodyStyle16,
                             fontStyle: FontStyle.italic,
                             fontWeight: FontWeight.bold,
                             decoration: TextDecoration.underline,
-                            decorationColor: AppColor.primary,
+                            decorationColor:
+                                Theme.of(context).colorScheme.primary,
                             decorationThickness: 1.5,
                           ),
                         ),
@@ -266,7 +271,7 @@ class _LoginViewState extends State<LoginView> {
                       Text(
                         AppString.or.tr,
                         style: TextStyle(
-                          color: AppColor.primary,
+                          color: Theme.of(context).colorScheme.primary,
                           fontSize: AppFontSize.bodyStyle16,
                         ),
                       ),
@@ -288,6 +293,27 @@ class _LoginViewState extends State<LoginView> {
                     onTap: () {
                       signInWithGoogle();
                     },
+                  ),
+                  SizedBox(
+                    height: AppSize.sizeBox24,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      DefaultSwitchOnboarding(
+                        // labelSwitch: AppString.labelLanguage.tr,
+                        icon1: AppAssets.egy,
+                        icon2: AppAssets.us,
+                      ),
+                      SizedBox(
+                        width: AppSize.sizeBox20,
+                      ),
+                      DefaultSwitchTheme(
+                        // labelSwitch: AppString.labelTheme.tr,
+                        icon1: AppAssets.lightIcon,
+                        icon2: AppAssets.darkIcon,
+                      ),
+                    ],
                   ),
                 ],
               ),

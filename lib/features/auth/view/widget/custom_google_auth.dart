@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 
 import '../../../../core/localization/app_string.dart';
 import '../../../../core/theme/app_assets.dart';
-import '../../../../core/theme/app_color.dart';
 import '../../../../core/theme/app_size.dart';
 
 class CustomGoogleAuth extends StatelessWidget {
@@ -26,7 +25,7 @@ class CustomGoogleAuth extends StatelessWidget {
         height: 50.h,
         decoration: BoxDecoration(
           border: Border.all(
-            color: AppColor.primary,
+            color: Theme.of(context).colorScheme.primary,
             width: 1,
           ),
           borderRadius: BorderRadius.circular(10.r),
@@ -39,7 +38,7 @@ class CustomGoogleAuth extends StatelessWidget {
             Text(
               AppString.loginWithGoogle.tr,
               style: TextStyle(
-                color: AppColor.primary,
+                color: Theme.of(context).colorScheme.primary,
                 fontSize: AppSize.sizeBox20,
               ),
             ),

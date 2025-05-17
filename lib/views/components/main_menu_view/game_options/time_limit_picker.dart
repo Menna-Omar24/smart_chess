@@ -1,4 +1,6 @@
+import 'package:en_passant/core/localization/app_string.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:get/get.dart';
 import 'picker.dart'; // عدل المسار حسب مكان ملف Picker
 
 class TimeLimitPicker extends StatelessWidget {
@@ -23,7 +25,7 @@ class TimeLimitPicker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Picker<int>(
-      label: 'Time Limit',
+      label: AppString.timeLimit.tr,
       options: timeOptions,
       selection: selectedTime,
       setFunc: setTime,

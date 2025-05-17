@@ -1,4 +1,6 @@
+import 'package:en_passant/core/localization/app_string.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_utils/get_utils.dart';
 
 class AppTheme {
   String? name;
@@ -25,7 +27,7 @@ class AppTheme {
 List<AppTheme> get themeList {
   var themeList = <AppTheme>[
     AppTheme(
-      name: 'Grey',
+      name: AppString.grey.tr,
       background: LinearGradient(
         begin: Alignment.topCenter,
         end: Alignment.bottomCenter,
@@ -41,7 +43,7 @@ List<AppTheme> get themeList {
       latestMove: Color(0xdddddddd),
     ),
     AppTheme(
-      name: 'Dark',
+      name: AppString.dark.tr,
       background: LinearGradient(
         begin: Alignment.topCenter,
         end: Alignment.bottomCenter,
@@ -55,7 +57,7 @@ List<AppTheme> get themeList {
       border: Color(0xff555555),
     ),
     AppTheme(
-      name: 'Amoled',
+      name:AppString.amoled.tr,
       background: LinearGradient(
         begin: Alignment.topCenter,
         end: Alignment.bottomCenter,
@@ -69,7 +71,7 @@ List<AppTheme> get themeList {
       border: Color(0xff555555),
     ),
     AppTheme(
-      name: 'Lewis',
+      name: AppString.lewis.tr,
       background: LinearGradient(
         begin: Alignment.topCenter,
         end: Alignment.bottomCenter,
@@ -85,7 +87,7 @@ List<AppTheme> get themeList {
       border: Color(0xffbdaa8c),
     ),
     AppTheme(
-      name: 'Cherry Funk',
+      name:AppString.cherryFunk.tr,
       background: LinearGradient(
         begin: Alignment.topCenter,
         end: Alignment.bottomCenter,
@@ -101,7 +103,7 @@ List<AppTheme> get themeList {
       border: Color(0xff434783),
     ),
     AppTheme(
-      name: 'Sage',
+      name: AppString.sage.tr,
       background: LinearGradient(
         begin: Alignment.topCenter,
         end: Alignment.bottomCenter,
@@ -117,7 +119,7 @@ List<AppTheme> get themeList {
       border: Color(0xFF000000),
     ),
     AppTheme(
-      name: 'Warm Tan',
+      name: AppString.warmTan.tr,
       background: LinearGradient(
         begin: Alignment.topCenter,
         end: Alignment.bottomCenter,
@@ -133,7 +135,7 @@ List<AppTheme> get themeList {
       border: Color(0xFF000000),
     ),
     AppTheme(
-      name: 'Jargon Jade',
+      name: AppString.jargonJade.tr,
       background: LinearGradient(
         begin: Alignment.topCenter,
         end: Alignment.bottomCenter,

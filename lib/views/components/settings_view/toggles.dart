@@ -1,7 +1,9 @@
 import 'dart:io';
 
+import 'package:en_passant/core/localization/app_string.dart';
 import 'package:en_passant/model/app_model.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import 'toggle.dart';
 
@@ -15,23 +17,23 @@ class Toggles extends StatelessWidget {
     return Column(
       children: [
         Toggle(
-          'Show Hints',
+          AppString.showHints.tr,
           toggle: appModel.showHints,
           setFunc: appModel.setShowHints,
         ),
         Toggle(
-          'Allow Undo/Redo',
+          AppString.allowUndoRedo.tr,
           toggle: appModel.allowUndoRedo,
           setFunc: appModel.setAllowUndoRedo,
         ),
         Toggle(
-          'Show Move History',
+          AppString.showMoveHistory.tr,
           toggle: appModel.showMoveHistory,
           setFunc: appModel.setShowMoveHistory,
         ),
         Platform.isAndroid
             ? Toggle(
-                'Sound Enabled',
+                AppString.soundEnabled.tr,
                 toggle: appModel.soundEnabled,
                 setFunc: appModel.setSoundEnabled,
               )

@@ -7,7 +7,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import '../../../core/localization/app_string.dart';
 import '../../../core/theme/app_assets.dart';
-import '../../../core/theme/app_color.dart';
 import '../../../core/theme/app_size.dart';
 
 class RegisterView extends StatefulWidget {
@@ -35,7 +34,7 @@ class _RegisterViewState extends State<RegisterView> {
           AppString.register.tr,
           style: TextStyle(
             fontFamily: 'JockeyOne',
-            color: AppColor.primary,
+            color: Theme.of(context).colorScheme.primary,
             fontWeight: FontWeight.bold,
             fontSize: AppFontSize.appTitle34,
           ),
@@ -59,7 +58,7 @@ class _RegisterViewState extends State<RegisterView> {
                     AppString.appTitle.tr,
                     style: TextStyle(
                       fontFamily: 'JockeyOne',
-                      color: AppColor.primary,
+                      color: Theme.of(context).colorScheme.primary,
                       fontWeight: FontWeight.bold,
                       fontSize: AppFontSize.appTitle34,
                     ),
@@ -71,6 +70,7 @@ class _RegisterViewState extends State<RegisterView> {
                             ? AppString.empty.tr
                             : AppString.desName.tr;
                       }
+                      return null;
                     },
                     controller: name,
                     labelText: AppString.labelName.tr,
@@ -86,6 +86,7 @@ class _RegisterViewState extends State<RegisterView> {
                             ? AppString.empty.tr
                             : AppString.invalidEmail.tr;
                       }
+                       return null;
                     },
                     controller: emailAddress,
                     labelText: AppString.labelEmail.tr,
@@ -101,6 +102,7 @@ class _RegisterViewState extends State<RegisterView> {
                             ? AppString.empty.tr
                             : AppString.desPasswordLeast.tr;
                       }
+                       return null;
                     },
                     controller: password,
                     labelText: AppString.labelPassword.tr,
@@ -118,6 +120,7 @@ class _RegisterViewState extends State<RegisterView> {
                             ? AppString.empty.tr
                             : AppString.passwordsDoNotMatch.tr;
                       }
+                       return null;
                     },
                     controller: confirmPassword,
                     labelText: AppString.confirmPassword.tr,
@@ -157,8 +160,7 @@ class _RegisterViewState extends State<RegisterView> {
                               dialogType: DialogType.error,
                               animType: AnimType.rightSlide,
                               title: AppString.error.tr,
-                              desc:
-                                  AppString.desEmailAlreadyInUse.tr,
+                              desc: AppString.desEmailAlreadyInUse.tr,
                             ).show();
                           }
                         } catch (e) {
@@ -177,9 +179,8 @@ class _RegisterViewState extends State<RegisterView> {
                       Text(
                         AppString.alreadyHaveAccount.tr,
                         style: TextStyle(
-                          fontSize: AppFontSize.bodyStyle16,
-                            color: AppColor.black
-                        ),
+                            fontSize: AppFontSize.bodyStyle16,
+                            color: Theme.of(context).colorScheme.onSecondary),
                       ),
                       TextButton(
                         onPressed: () {
@@ -188,11 +189,12 @@ class _RegisterViewState extends State<RegisterView> {
                         child: Text(
                           AppString.login.tr,
                           style: TextStyle(
-                            color: AppColor.primary,
+                            color: Theme.of(context).colorScheme.primary,
                             fontSize: AppFontSize.bodyStyle16,
                             fontStyle: FontStyle.italic,
                             decoration: TextDecoration.underline,
-                            decorationColor: AppColor.primary,
+                            decorationColor:
+                                Theme.of(context).colorScheme.primary,
                             decorationThickness: 1.5,
                           ),
                         ),

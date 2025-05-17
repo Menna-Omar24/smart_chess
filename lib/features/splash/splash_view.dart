@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-
 import '../../core/localization/app_string.dart';
 import '../../core/theme/app_assets.dart';
-import '../../core/theme/app_color.dart';
 import '../../core/theme/app_size.dart';
-import '../on_boarding/view/start_onboarding_view.dart';
+import '../../features/auth/view/login_view.dart';
+import '../../features/on_boarding/view/start_onboarding_view.dart';
+import '../../core/helpers/shared_pref_helper.dart';
 
 class SplashView extends StatefulWidget {
   static const String routeName = 'splash';
@@ -21,6 +21,7 @@ class _SplashViewState extends State<SplashView> {
   @override
   void initState() {
     super.initState();
+
     Future.delayed(const Duration(milliseconds: 300), () {
       setState(() {
         opacity = 1;
@@ -28,15 +29,24 @@ class _SplashViewState extends State<SplashView> {
       });
     });
 
-    Future.delayed(const Duration(seconds: 5), () {
+    _navigateAfterDelay();
+  }
+
+  Future<void> _navigateAfterDelay() async {
+    await Future.delayed(const Duration(seconds: 5));
+
+    final hasSeenStartOnboarding = await SharedPrefHelper.hasSeenStartOnboarding();
+
+    if (hasSeenStartOnboarding) {
+      Navigator.pushReplacementNamed(context, LoginView.routeName);
+    } else {
       Navigator.pushReplacementNamed(context, StartOnboardingView.routeName);
-    });
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColor.white,
       body: Center(
         child: AnimatedOpacity(
           duration: const Duration(milliseconds: 1000),
@@ -57,7 +67,7 @@ class _SplashViewState extends State<SplashView> {
                   AppString.appTitle,
                   style: TextStyle(
                     fontFamily: 'JockeyOne',
-                    color: AppColor.primary,
+                    color: Theme.of(context).colorScheme.primary,
                     fontWeight: FontWeight.bold,
                     fontSize: AppFontSize.appTitle34,
                   ),

@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../core/localization/app_string.dart';
 import '../../../core/theme/app_assets.dart';
-import '../../../core/theme/app_color.dart';
 import '../../../core/theme/app_size.dart';
 
 class ForgetPasswordView extends StatefulWidget {
@@ -31,7 +30,7 @@ class _ForgetPasswordViewState extends State<ForgetPasswordView> {
           AppString.forgetPassword.tr,
           style: TextStyle(
             fontFamily: 'JockeyOne',
-            color: AppColor.primary,
+            color: Theme.of(context).colorScheme.primary,
             fontWeight: FontWeight.bold,
             fontSize: AppFontSize.appTitle34,
           ),
@@ -53,6 +52,7 @@ class _ForgetPasswordViewState extends State<ForgetPasswordView> {
                           ? AppString.empty.tr
                           : AppString.invalidEmail.tr;
                     }
+                    return null;
                   },
                   controller: emailAddress,
                   labelText: AppString.labelEmail.tr,

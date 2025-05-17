@@ -1,3 +1,4 @@
+import 'package:en_passant/core/helpers/shared_pref_helper.dart';
 import 'package:en_passant/features/on_boarding/view/widget/default_switch_onboarding.dart';
 import 'package:en_passant/features/on_boarding/view/widget/default_switch_theme.dart';
 import 'package:flutter/material.dart';
@@ -5,7 +6,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import '../../../core/localization/app_string.dart';
 import '../../../core/theme/app_assets.dart';
-import '../../../core/theme/app_color.dart';
 import '../../../core/theme/app_size.dart';
 import '../../auth/view/widget/custom_elevated_button.dart';
 import 'on_boarding_view.dart';
@@ -26,7 +26,7 @@ class StartOnboardingView extends StatelessWidget {
             fontFamily: 'JockeyOne',
             fontWeight: FontWeight.bold,
             fontSize: AppFontSize.appTitle34,
-            color: AppColor.primary,
+            color: Theme.of(context).colorScheme.primary,
           ),
         ),
       ),
@@ -47,7 +47,7 @@ class StartOnboardingView extends StatelessWidget {
                 style: TextStyle(
                   fontSize: AppFontSize.titleStyle20,
                   fontWeight: FontWeight.bold,
-                  color: AppColor.primary,
+                  color: Theme.of(context).colorScheme.primary,
                 ),
               ),
               SizedBox(
@@ -58,7 +58,7 @@ class StartOnboardingView extends StatelessWidget {
                 AppString.bodyBoarding1.tr,
                 style: TextStyle(
                   fontSize: AppFontSize.bodyStyle16,
-                  color: AppColor.black,
+                  color: Theme.of(context).colorScheme.onSecondary,
                 ),
               ),
               SizedBox(
@@ -74,7 +74,7 @@ class StartOnboardingView extends StatelessWidget {
               ),
               DefaultSwitchTheme(
                 labelSwitch: AppString.labelTheme.tr,
-                icon1: AppAssets.lightIcon ,
+                icon1: AppAssets.lightIcon,
                 icon2: AppAssets.darkIcon,
               ),
               SizedBox(
@@ -82,7 +82,8 @@ class StartOnboardingView extends StatelessWidget {
               ),
               CustomElevatedButton(
                 buttonText: AppString.buttonStart.tr,
-                onPressed: () {
+                onPressed: () async{
+               await SharedPrefHelper.setStartOnboardingSeen();
                   Navigator.of(context).pushReplacement(
                     MaterialPageRoute(
                       builder: (context) => OnboardingScreen(),
